@@ -24,12 +24,13 @@ class Menu {
 			//print 0 by default
 			if (history_index >= 0)
 			{
-				cout << history.at(history_index) << endl;
+				
+				cout << history.at(history_index - 1)->execute() << endl;
 			}
 
 			else
 			{
-				cout << 0 << endl;
+				cout << "0" << endl;
 			}
 		};
 
@@ -38,7 +39,7 @@ class Menu {
 			//Return true if the history has been primed with a single op instruciton
 			//This is necessary because that is the base of a calculation
 			
-			if (history_index >= 0)
+			if (history_index > 0)
 			{
 				return true;
 			}
@@ -52,28 +53,24 @@ class Menu {
 		void add_command(Command* cmd)
 		{
 			//Adds a command to history in the appropriate posiiton (based on history_index)
-			if (history.size() == 0)
+			if(history.size() == static_cast<unsigned>(history_index))
 			{
 				history.push_back(cmd);
-			}
-
-			else if(history.size() == static_cast<unsigned>(history_index))
-			{
-				history.push_back(cmd);
+				cout << "push command" << endl;
 			}
 
 			else
 			{
-				history.at(history_index + 1) = cmd;
+				history.at(history_index) = cmd;
 			}
-
+			++history_index;
 			return;
 		};
 
 		Command* get_command()
 		{
 			//Returns the command in history we are currently referring to (based on history_index)
-			return history.at(history_index);
+			return history.at(history_index - 1);
 
 		};
 
