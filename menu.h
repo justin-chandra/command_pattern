@@ -52,7 +52,21 @@ class Menu {
 		void add_command(Command* cmd)
 		{
 			//Adds a command to history in the appropriate posiiton (based on history_index)
-			history.at(history_index + 1) = cmd;
+			if (history.size() == 0)
+			{
+				history.push_back(cmd);
+			}
+
+			else if(history.size() == static_cast<unsigned>(history_index))
+			{
+				history.push_back(cmd);
+			}
+
+			else
+			{
+				history.at(history_index + 1) = cmd;
+			}
+
 			return;
 		};
 
