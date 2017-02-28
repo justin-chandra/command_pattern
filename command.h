@@ -52,7 +52,10 @@ class MultCommand : public Command {
 	public:
 		MultCommand(Command * c, double i)
 		{
-
+			Base * left = c->get_root();
+			Op * right = new Op(i);
+			Mult * mult = new Mult(left, right);
+			root =  mult;
 		}
 };
 
@@ -61,7 +64,9 @@ class SqrCommand : public Command {
 	public:
 		SqrCommand(Command * c)
 		{
-
+			Base * num = c->get_root();
+			Sqr * sqr = new Sqr(num);
+			root = sqr;
 		}
 };
 
