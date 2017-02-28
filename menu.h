@@ -82,7 +82,7 @@ class Menu {
 		{
 			//Moves to the next command in history (if possible)
 			
-			if(history.size() >= static_cast<unsigned>history_index)
+			if(history.size() >= static_cast<unsigned>(history_index))
 			{
 				history_index = history_index + 1;
 			}
