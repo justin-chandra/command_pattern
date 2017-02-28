@@ -43,7 +43,10 @@ class SubCommand : public Command {
 	public:
 		SubCommand(Command * c, double i)
 		{
-
+			Base * left = c->get_root();
+			Op * right = new Op(i);
+			Sub * sub = new Sub(left, right);
+			root = sub;
 		}
 };
 
