@@ -6,7 +6,7 @@
 class Command {
 	protected:
 		Base* root;
-	
+
 	public:
 		Command() { };
 		double execute() {
@@ -19,22 +19,46 @@ class Command {
 
 class OpCommand : public Command {
 	//OpCommand Code Here
+	public:
+		OpCommand(double i)
+		{
+
+		}
 };
 
 class AddCommand : public Command {
-	//AddCommand Code Here
+	public:
+		AddCommand(Command * c, double i)
+		{
+
+		}
 };
 
 class SubCommand : public Command {
 	//SubCommand Code Here
+	public:
+		SubCommand(Command * c, double i)
+		{
+
+		}
 };
 
 class MultCommand : public Command {
 	//MultCommand Code Here
+	public:
+		MultCommand(Command * c, double i)
+		{
+
+		}
 };
 
 class SqrCommand : public Command {
 	//SqrCommand Code Here
+	public:
+		SqrCommand(Command * c)
+		{
+
+		}
 };
 
 #endif //__COMMAND_CLASS__
